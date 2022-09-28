@@ -20,15 +20,15 @@
           <div class="weather__body">
             <!-- <img src="https://picsum.photos/300/200" alt="" /> -->
             <div class="weather__temps">
-              <span class="weather__temp">26 <sup>°</sup> </span>
+              <span class="weather__temp"> 20<sup>°</sup> </span>
               <div class="weather__inform">
                 <div class="weather__places">
                   <span class="place">London</span>
-                  <img src="./images/sunny.png" alt="" width="30" height="30" />
+                  <span class="icon"></span>
                 </div>
                 <div class="weather__date-holder">
-                  <span class="weather__time">10.36- Tuesday,22 Oct 19</span>
-                  <span class="weather__condition">sunny</span>
+                  <span class="weather__time">4:32:39 AM - Thursday, 29 September 2022</span>
+                  <span class="weather__condition"></span>
                 </div>
               </div>
             </div>
@@ -37,7 +37,7 @@
         <section class="section__right">
           <div class="search__holder">
             <input
-              type="search"
+              type="text"
               name="search"
               id="search"
               placeholder="Another Location"
@@ -53,7 +53,7 @@
           </div>
           <div class="places">
             <ul>
-              <li>Paris</li>
+              <li id="city">Paris</li>
               <li>Tashkent</li>
               <li>Bukhara</li>
               <li>NY</li>
@@ -64,19 +64,19 @@
             <div class="detail-holder">
               <div class="weather-detail">
                 <span class="detail-left">Cloudy</span>
-                <span class="detail-right">12%</span>
+                <span class="detail-right" id="weather__temp">12%</span>
               </div>
               <div class="weather-detail">
                 <span class="detail-left">Humidity</span>
-                <span class="detail-right">12%</span>
+                <span class="detail-right humidity">12%</span>
               </div>
               <div class="weather-detail">
                 <span class="detail-left">Wind</span>
-                <span class="detail-right">1km/h</span>
+                <span class="detail-right wind">1km/h</span>
               </div>
               <div class="weather-detail">
-                <span class="detail-left">Rain</span>
-                <span class="detail-right">0mm</span>
+                <span class="detail-left">Pressure</span>
+                <span class="detail-right pressure">0mm</span>
               </div>
             </div>
             <hr />

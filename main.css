@@ -6,7 +6,7 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #a5cbe2;
+  background-color: #65baf3;
 }
 
 a {
@@ -18,10 +18,14 @@ ul {
 }
 ul li {
   list-style: none;
-  color: #4f7a9a;
+  color: white;
   font-size: 1.325rem;
   font-weight: 500;
   line-height: 2;
+  transition: all ease 0.3s;
+}
+ul li:hover {
+  color: #7ea0bb;
 }
 .container {
   max-width: 1140px;
@@ -34,10 +38,11 @@ main {
   width: 100%;
   display: flex;
   margin: 50px auto;
+  box-shadow: 4px 11px 12px 5px #4f7a9a;
 }
 
 .section__left {
-  background-color: #4d9cd5;
+  background-color: #129cf9;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -76,10 +81,14 @@ main {
 .weather-detail {
   display: flex;
   justify-content: space-between;
-  color: #4f7a9a;
+  color: #fff;
   font-size: 1.325rem;
   font-weight: 500;
   line-height: 2;
+  transition: all ease 0.3s;
+}
+.weather-detail:hover {
+  color: #7ea0bb;
 }
 .places {
   padding: 0 3rem;
@@ -150,4 +159,18 @@ hr {
 }
 .search-btn img {
   object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  main {
+    flex-direction: column-reverse;
+  }
+  .section__left,
+  .section__right {
+    width: 100%;
+  }
+  .weather__temps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
