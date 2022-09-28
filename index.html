@@ -8,8 +8,82 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <h1>Hello World</h1>
-
+    <div class="container">
+      <main>
+        <section class="section__left">
+          <a
+            href="https://github.com/Shokhabbos/openWeater-app"
+            target="_blank"
+            class="weather__title"
+            >Soure Code</a
+          >
+          <div class="weather__body">
+            <!-- <img src="https://picsum.photos/300/200" alt="" /> -->
+            <div class="weather__temps">
+              <span class="weather__temp">26 <sup>°</sup> </span>
+              <div class="weather__inform">
+                <div class="weather__places">
+                  <span class="place">London</span>
+                  <img src="./images/sunny.png" alt="" width="30" height="30" />
+                </div>
+                <div class="weather__date-holder">
+                  <span class="weather__time">10.36- Tuesday,22 Oct 19</span>
+                  <span class="weather__condition">sunny</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section__right">
+          <div class="search__holder">
+            <input
+              type="search"
+              name="search"
+              id="search"
+              placeholder="Another Location"
+            />
+            <button class="search-btn">
+              <img
+                src="./images/search-icon.png"
+                alt=" Search icon"
+                width="40"
+                height="40"
+              />
+            </button>
+          </div>
+          <div class="places">
+            <ul>
+              <li>Paris</li>
+              <li>Tashkent</li>
+              <li>Bukhara</li>
+              <li>NY</li>
+            </ul>
+            <hr />
+          </div>
+          <div class="weather-details">
+            <div class="detail-holder">
+              <div class="weather-detail">
+                <span class="detail-left">Cloudy</span>
+                <span class="detail-right">12%</span>
+              </div>
+              <div class="weather-detail">
+                <span class="detail-left">Humidity</span>
+                <span class="detail-right">12%</span>
+              </div>
+              <div class="weather-detail">
+                <span class="detail-left">Wind</span>
+                <span class="detail-right">1km/h</span>
+              </div>
+              <div class="weather-detail">
+                <span class="detail-left">Rain</span>
+                <span class="detail-right">0mm</span>
+              </div>
+            </div>
+            <hr />
+          </div>
+        </section>
+      </main>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
