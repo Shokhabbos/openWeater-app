@@ -37,7 +37,7 @@ ul li:hover {
 main {
   width: auto;
   display: flex;
-  margin: 50px auto;
+  margin: 25px auto;
   box-shadow: 4px 11px 12px 5px #4f7a9a;
 }
 .icon {
