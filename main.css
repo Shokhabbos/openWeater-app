@@ -40,7 +40,11 @@ main {
   margin: 50px auto;
   box-shadow: 4px 11px 12px 5px #4f7a9a;
 }
-
+.icon {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+}
 .section__left {
   background-color: #129cf9;
   display: flex;
@@ -172,5 +176,10 @@ hr {
   .weather__temps {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+  .icon {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
   }
 }

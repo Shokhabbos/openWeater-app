@@ -52,8 +52,7 @@ const getResults = (query) => {
       condition.innerHTML = data.weather[0].main;
       icon.innerHTML = ` <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" 
       alt="${data.weather[0].description}" 
-      width="50" 
-      height="50"
+     
        class="icon"/>
       `;
     })
