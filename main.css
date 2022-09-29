@@ -106,11 +106,16 @@ hr {
 .detail-holder {
   padding: 0 0 3rem 0;
 }
-.place {
+.place,
+.display {
   color: #fff;
   font-weight: 400;
   font-size: 2rem;
   line-height: 1;
+}
+.display,
+.icon {
+  transition: all ease 0.3s;
 }
 .weather__time,
 .weather__condition {
