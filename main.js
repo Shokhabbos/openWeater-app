@@ -11,8 +11,21 @@ searchBtn.addEventListener("click", () => {
   searchInput.focus();
 });
 
+function delay(callback, ms) {
+  let timer = 0;
+  return function () {
+    let context = this,
+      args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      callback.apply(context, args);
+    }, ms || 0);
+  };
+}
+
 const setQuery = (e) => {
   const query = e.target.value;
+  console.log(query, "qer");
   getResults(query);
 };
 const getResults = (query) => {
@@ -31,13 +44,6 @@ const getResults = (query) => {
       const date = document.querySelector(".weather__time");
       const condition = document.querySelector(".detail-left");
       const icon = document.querySelector(".icon");
-      if (data.cod === "404") {
-        const city = document.querySelector("#city");
-
-        console.log(query, "qqqqqqq");
-        console.log(data.cod, "qqqqqqq");
-        city.innerHTML = `<span>Yo</span>`;
-      }
       console.log(data);
 
       const now = new Date();
@@ -92,4 +98,4 @@ const dateBinder = (time) => {
   return `${currentTime} - ${day}, ${date}  ${month} ${year}`;
 };
 
-searchInput.addEventListener("keyup", setQuery);
+searchInput.addEventListener("keyup", delay(setQuery, (time = 500)));
