@@ -35,7 +35,7 @@ ul li:hover {
   box-sizing: border-box;
 }
 main {
-  width: 100%;
+  width: auto;
   display: flex;
   margin: 50px auto;
   box-shadow: 4px 11px 12px 5px #4f7a9a;
