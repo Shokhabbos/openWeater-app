@@ -25,14 +25,14 @@ function delay(callback, ms) {
 }
 
 const setQuery = (e) => {
-  const query = e.target.value;
+  const query = e?.target?.value;
   console.log(query, "query");
   getResults(query);
 };
 const getResults = (query) => {
   fetch(`${api.baseURL}weather?q=${query}&units=${api.units}&appid=${api.key}`)
     .then((res) => {
-      if (!res.ok) {
+      if (!res.ok && query) {
         return (display.innerHTML = "Loading...");
       } else {
         display.innerHTML = "";
