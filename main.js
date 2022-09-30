@@ -7,10 +7,67 @@ const api = {
 const searchBtn = document.querySelector(".search-btn");
 const display = document.querySelector(".display");
 const searchInput = document.querySelector("#search");
+// const ny = document.querySelector("#ny");
+// const bukhara = document.querySelector("#bukhara");
+// const paris = document.querySelector("#paris");
+const toshkent = document.querySelector("#toshkent");
+const towns = document.querySelectorAll("#town");
 
 searchBtn.addEventListener("click", () => {
   searchInput.focus();
 });
+
+towns.forEach(function (town) {
+  town.addEventListener("click", function (e) {
+    const ownTown = (searchInput.value = e.target.textContent);
+    getOwnTown(ownTown);
+  });
+});
+
+const getOwnTown = (ownTown) => {
+  console.log(ownTown);
+  fetch(
+    `${api.baseURL}weather?q=${ownTown}&units=${api.units}&appid=${api.key}`
+  )
+    .then((res) => {
+      if (!res.ok && query) {
+        return (display.innerHTML = "Loading...");
+      } else {
+        display.innerHTML = "";
+        return res.json();
+      }
+    })
+    .then((data) => {
+      const place = document.querySelector(".place");
+      const weather__temp = document.querySelector(".weather__temp");
+      const weather__temp1 = document.querySelector("#weather__temp");
+      const city = document.querySelector("#city");
+      const humidity = document.querySelector(".humidity ");
+      const wind = document.querySelector(".wind ");
+      const pressure = document.querySelector(".pressure ");
+      const date = document.querySelector(".weather__time");
+      const condition = document.querySelector(".detail-left");
+      const icon = document.querySelector(".icon");
+      console.log(data);
+      if (data.cod === 200) {
+        place.innerHTML = data.name;
+        const now = new Date();
+        weather__temp.innerHTML = `${Math.round(data.main.temp)}<sup>°</sup> `;
+        weather__temp1.innerHTML = `${Math.round(data.main.temp)}<sup>°</sup> `;
+        humidity.innerHTML = `${data.main.humidity}<span>%</span> `;
+        wind.innerHTML = `${data.wind.speed}<span>meter/sec</span> `;
+        pressure.innerHTML = `${data.main.pressure}<span>hPa</span> `;
+        date.innerHTML = dateBinder(now);
+        condition.innerHTML = data.weather[0].main;
+        icon.innerHTML = ` <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" 
+        alt="${data.weather[0].description}" 
+       
+         class="icon"/>
+        `;
+      }
+    })
+    .catch((err) => console.log("err=>", "There is no such a city!"));
+};
 
 function delay(callback, ms) {
   let timer = 0;
@@ -28,6 +85,7 @@ const setQuery = (e) => {
   const query = e?.target?.value;
   console.log(query, "query");
   getResults(query);
+  towns(getResults(query));
 };
 const getResults = (query) => {
   fetch(`${api.baseURL}weather?q=${query}&units=${api.units}&appid=${api.key}`)
