@@ -12,6 +12,17 @@ const searchInput = document.querySelector("#search");
 // const paris = document.querySelector("#paris");
 const toshkent = document.querySelector("#toshkent");
 const towns = document.querySelectorAll("#town");
+
+const place = document.querySelector(".place");
+const weather__temp = document.querySelector(".weather__temp");
+const weather__temp1 = document.querySelector("#weather__temp");
+const city = document.querySelector("#city");
+const humidity = document.querySelector(".humidity ");
+const wind = document.querySelector(".wind ");
+const pressure = document.querySelector(".pressure ");
+const date = document.querySelector(".weather__time");
+const condition = document.querySelector(".detail-left");
+const icon = document.querySelector(".icon");
 let defaultCity = "Tashkent";
 
 searchBtn.addEventListener("click", () => {
@@ -39,16 +50,6 @@ const getCurrentCity = (ownTown) => {
       }
     })
     .then((data) => {
-      const place = document.querySelector(".place");
-      const weather__temp = document.querySelector(".weather__temp");
-      const weather__temp1 = document.querySelector("#weather__temp");
-      const city = document.querySelector("#city");
-      const humidity = document.querySelector(".humidity ");
-      const wind = document.querySelector(".wind ");
-      const pressure = document.querySelector(".pressure ");
-      const date = document.querySelector(".weather__time");
-      const condition = document.querySelector(".detail-left");
-      const icon = document.querySelector(".icon");
       console.log(data);
       if (data.cod === 200) {
         place.innerHTML = data.name;
@@ -99,16 +100,6 @@ const getResults = (query) => {
       }
     })
     .then((data) => {
-      const place = document.querySelector(".place");
-      const weather__temp = document.querySelector(".weather__temp");
-      const weather__temp1 = document.querySelector("#weather__temp");
-      const city = document.querySelector("#city");
-      const humidity = document.querySelector(".humidity ");
-      const wind = document.querySelector(".wind ");
-      const pressure = document.querySelector(".pressure ");
-      const date = document.querySelector(".weather__time");
-      const condition = document.querySelector(".detail-left");
-      const icon = document.querySelector(".icon");
       console.log(data);
       if (data.cod === 200) {
         place.innerHTML = data.name;
@@ -130,10 +121,8 @@ const getResults = (query) => {
     .catch((err) => console.log("err=>", "There is no such a city!"));
 };
 const getCurrent = () => {
-  let c = "Tashkent"
-  fetch(
-    `${api.baseURL}weather?q=${c}&units=${api.units}&appid=${api.key}`
-  )
+  let c = "Tashkent";
+  fetch(`${api.baseURL}weather?q=${c}&units=${api.units}&appid=${api.key}`)
     .then((res) => {
       if (!res.ok && c) {
         return (display.innerHTML = "Loading...");
@@ -143,16 +132,6 @@ const getCurrent = () => {
       }
     })
     .then((data) => {
-      const place = document.querySelector(".place");
-      const weather__temp = document.querySelector(".weather__temp");
-      const weather__temp1 = document.querySelector("#weather__temp");
-      const city = document.querySelector("#city");
-      const humidity = document.querySelector(".humidity ");
-      const wind = document.querySelector(".wind ");
-      const pressure = document.querySelector(".pressure ");
-      const date = document.querySelector(".weather__time");
-      const condition = document.querySelector(".detail-left");
-      const icon = document.querySelector(".icon");
       console.log(data);
       if (data.cod === 200) {
         place.innerHTML = data.name;
