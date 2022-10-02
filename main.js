@@ -7,12 +7,8 @@ const api = {
 const searchBtn = document.querySelector(".search-btn");
 const display = document.querySelector(".display");
 const searchInput = document.querySelector("#search");
-// const ny = document.querySelector("#ny");
-// const bukhara = document.querySelector("#bukhara");
-// const paris = document.querySelector("#paris");
 const toshkent = document.querySelector("#toshkent");
 const towns = document.querySelectorAll("#town");
-
 const place = document.querySelector(".place");
 const weather__temp = document.querySelector(".weather__temp");
 const weather__temp1 = document.querySelector("#weather__temp");
@@ -29,6 +25,24 @@ searchBtn.addEventListener("click", () => {
   searchInput.focus();
 });
 
+function renderData(data) {
+  if (data.cod === 200) {
+    place.innerHTML = data.name;
+    const now = new Date();
+    weather__temp.innerHTML = `${Math.round(data.main.temp)}<sup>°</sup> `;
+    weather__temp1.innerHTML = `${Math.round(data.main.temp)}<sup>°</sup> `;
+    humidity.innerHTML = `${data.main.humidity}<span>%</span> `;
+    wind.innerHTML = `${data.wind.speed}<span>meter/sec</span> `;
+    pressure.innerHTML = `${data.main.pressure}<span>hPa</span> `;
+    date.innerHTML = dateBinder(now);
+    condition.innerHTML = data.weather[0].main;
+    icon.innerHTML = ` <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" 
+    alt="${data.weather[0].description}" 
+   
+     class="icon"/>
+    `;
+  }
+}
 towns.forEach(function (town) {
   town.addEventListener("click", function (e) {
     const ownTown = (searchInput.value = e.target.textContent);
@@ -51,22 +65,7 @@ const getCurrentCity = (ownTown) => {
     })
     .then((data) => {
       console.log(data);
-      if (data.cod === 200) {
-        place.innerHTML = data.name;
-        const now = new Date();
-        weather__temp.innerHTML = `${Math.round(data.main.temp)}<sup>°</sup> `;
-        weather__temp1.innerHTML = `${Math.round(data.main.temp)}<sup>°</sup> `;
-        humidity.innerHTML = `${data.main.humidity}<span>%</span> `;
-        wind.innerHTML = `${data.wind.speed}<span>meter/sec</span> `;
-        pressure.innerHTML = `${data.main.pressure}<span>hPa</span> `;
-        date.innerHTML = dateBinder(now);
-        condition.innerHTML = data.weather[0].main;
-        icon.innerHTML = ` <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" 
-        alt="${data.weather[0].description}" 
-       
-         class="icon"/>
-        `;
-      }
+      renderData(data);
     })
     .catch((err) => console.log("err=>", "There is no such a city!"));
 };
@@ -101,22 +100,7 @@ const getResults = (query) => {
     })
     .then((data) => {
       console.log(data);
-      if (data.cod === 200) {
-        place.innerHTML = data.name;
-        const now = new Date();
-        weather__temp.innerHTML = `${Math.round(data.main.temp)}<sup>°</sup> `;
-        weather__temp1.innerHTML = `${Math.round(data.main.temp)}<sup>°</sup> `;
-        humidity.innerHTML = `${data.main.humidity}<span>%</span> `;
-        wind.innerHTML = `${data.wind.speed}<span>meter/sec</span> `;
-        pressure.innerHTML = `${data.main.pressure}<span>hPa</span> `;
-        date.innerHTML = dateBinder(now);
-        condition.innerHTML = data.weather[0].main;
-        icon.innerHTML = ` <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" 
-        alt="${data.weather[0].description}" 
-       
-         class="icon"/>
-        `;
-      }
+      renderData(data);
     })
     .catch((err) => console.log("err=>", "There is no such a city!"));
 };
@@ -133,22 +117,7 @@ const getCurrent = () => {
     })
     .then((data) => {
       console.log(data);
-      if (data.cod === 200) {
-        place.innerHTML = data.name;
-        const now = new Date();
-        weather__temp.innerHTML = `${Math.round(data.main.temp)}<sup>°</sup> `;
-        weather__temp1.innerHTML = `${Math.round(data.main.temp)}<sup>°</sup> `;
-        humidity.innerHTML = `${data.main.humidity}<span>%</span> `;
-        wind.innerHTML = `${data.wind.speed}<span>meter/sec</span> `;
-        pressure.innerHTML = `${data.main.pressure}<span>hPa</span> `;
-        date.innerHTML = dateBinder(now);
-        condition.innerHTML = data.weather[0].main;
-        icon.innerHTML = ` <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png"
-        alt="${data.weather[0].description}"
-
-         class="icon"/>
-        `;
-      }
+      renderData(data);
     })
     .catch((err) => console.log("err=>", "There is no such a city!"));
 };
