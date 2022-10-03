@@ -23,6 +23,7 @@ ul li {
   font-weight: 500;
   line-height: 2;
   transition: all ease 0.3s;
+  cursor: pointer;
 }
 ul li:hover {
   color: #7ea0bb;
